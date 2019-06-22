@@ -16,20 +16,20 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.sraap.sistemasraap.model.entidades.LoginEntity;
 
-@WebFilter(filterName = "loginAut", urlPatterns = {"/seguranca/login.jsf"})
+@WebFilter(filterName = "loginAut", urlPatterns = {"/seguranca/login.xhtml"})
 public class loginAut implements Filter {
-    
+
     private static final boolean debug = true;
 
     private FilterConfig filterConfig = null;
-    
+
     public loginAut() {
-    }    
-    
+    }
+
     private void doBeforeProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
-    }    
-    
+    }
+
     private void doAfterProcessing(ServletRequest request, ServletResponse response)
             throws IOException, ServletException {
     }
@@ -40,12 +40,12 @@ public class loginAut implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
         HttpSession session = (HttpSession) req.getSession();
-        
-        LoginEntity login = (LoginEntity)session.getAttribute("usuario");
+
+        LoginEntity login = (LoginEntity) session.getAttribute("usuario");
         if (login == null) {
             chain.doFilter(request, response);
         } else {
-            res.sendRedirect(req.getContextPath() + "/web/index.jsf");
+            res.sendRedirect(req.getContextPath() + "/web/index.xhtml");
         }
     }
 
@@ -57,13 +57,13 @@ public class loginAut implements Filter {
         this.filterConfig = filterConfig;
     }
 
-    public void destroy() {        
+    public void destroy() {
     }
 
-    public void init(FilterConfig filterConfig) {        
+    public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (debug) {                
+            if (debug) {
                 log("loginAut:Initializing filter");
             }
         }
@@ -79,20 +79,20 @@ public class loginAut implements Filter {
         sb.append(")");
         return (sb.toString());
     }
-    
+
     private void sendProcessingError(Throwable t, ServletResponse response) {
-        String stackTrace = getStackTrace(t);        
-        
+        String stackTrace = getStackTrace(t);
+
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
                 response.setContentType("text/html");
                 PrintStream ps = new PrintStream(response.getOutputStream());
-                PrintWriter pw = new PrintWriter(ps);                
+                PrintWriter pw = new PrintWriter(ps);
                 pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
 
                 // PENDING! Localize this for next official release
-                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");                
-                pw.print(stackTrace);                
+                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
+                pw.print(stackTrace);
                 pw.print("</pre></body>\n</html>"); //NOI18N
                 pw.close();
                 ps.close();
@@ -109,7 +109,7 @@ public class loginAut implements Filter {
             }
         }
     }
-    
+
     public static String getStackTrace(Throwable t) {
         String stackTrace = null;
         try {
@@ -123,9 +123,9 @@ public class loginAut implements Filter {
         }
         return stackTrace;
     }
-    
+
     public void log(String msg) {
-        filterConfig.getServletContext().log(msg);        
+        filterConfig.getServletContext().log(msg);
     }
-    
+
 }

@@ -43,7 +43,7 @@ public class appAut implements Filter {
         
         LoginEntity login = (LoginEntity)session.getAttribute("usuario");
         if (login == null) {
-            res.sendRedirect(req.getContextPath() + "/seguranca/login.jsf");
+            res.sendRedirect(req.getContextPath() + "/seguranca/login.xhtml");
         } else {
             chain.doFilter(request, response);
         }
