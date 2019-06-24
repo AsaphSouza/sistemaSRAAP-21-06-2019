@@ -102,7 +102,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-font"></i></div>
-                                            <h:inputText id="titulo" class="form-control" required = "true" requiredMessage="Campo obrigatório" >
+                                            <h:inputText id="titulo" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{atividadeController.atividade.titulo}">
                                                 <f:passThroughAttribute name="placeholder" value="Título" />
                                             </h:inputText>
                                         </div>
@@ -110,7 +110,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-paragraph"></i></div>
-                                            <h:inputTextarea id="descricao" class="form-control" required = "true" >
+                                            <h:inputTextarea id="descricao" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{atividadeController.atividade.descricao}">
                                                 <f:passThroughAttribute name="placeholder" value="Descrição" />
                                             </h:inputTextarea>
                                         </div>
@@ -118,7 +118,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-link"></i></div>
-                                            <h:inputText id="link" class="form-control" required = "true" requiredMessage="Campo obrigatório" >
+                                            <h:inputText id="link" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{atividadeController.atividade.link}">
                                                 <f:passThroughAttribute name="placeholder" value="Link de acesso" />
                                             </h:inputText>
                                         </div>
@@ -127,12 +127,12 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                            <h:selectOneMenu id="perfil" class="form-control" required = "autofocus" >
+                                            <h:selectOneMenu id="perfil" class="form-control" required = "autofocus" value="#{atividadeController.atividade.perfil}">
                                                 <f:selectItem itemValue="Selecione o perfil" noSelectionOption="true"/>
-                                                <f:selectItem itemValue="1" itemLabel="Ativo"/> 
-                                                <f:selectItem itemValue="2" itemLabel="Reflexivo"/> 
-                                                <f:selectItem itemValue="3" itemLabel="Teórico"/>
-                                                <f:selectItem itemValue="4" itemLabel="Pragmático"/> 
+                                                <f:selectItem itemValue="Ativo" itemLabel="Ativo"/> 
+                                                <f:selectItem itemValue="Reflexivo" itemLabel="Reflexivo"/> 
+                                                <f:selectItem itemValue="Teórico" itemLabel="Teórico"/>
+                                                <f:selectItem itemValue="Pragmático" itemLabel="Pragmático"/> 
                                             </h:selectOneMenu>
                                         </div>
                                     </div>
@@ -140,18 +140,18 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-graduation-cap"></i></div>
-                                            <h:selectOneMenu id="turma" class="form-control" required = "autofocus" >
+                                            <h:selectOneMenu id="turma" class="form-control" required = "autofocus" requiredMessage="Campo obrigatório" value="#{atividadeController.atividade.turmas}">
                                                 <f:selectItem itemValue="Selecione uma turma" noSelectionOption="true"/>
+                                                <f:selectItems value="#{turmaController.listar()}"/><!-- AQUI TEM QUE TER UM METODO DE LISTAR TURMAS-->
                                             </h:selectOneMenu>
                                         </div>
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <h:commandLink type="submit"                   
+                                        <h:commandLink type="submit" action="#{atividadeController.cadastrar()}"                  
                                                        class="btn btn-success btn-sm">
                                             <i class="fa fa-save"></i>
-                                            Salvar
-                                            <f:ajax render="@form" resetValues="true"/>
+                                            Salvar<f:ajax render="@form" resetValues="true"/>
                                         </h:commandLink>
 
                                     </div>

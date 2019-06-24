@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                        <h:inputText id="email" class="form-control">
+                                        <h:inputText id="email" class="form-control" value="#{usuarioController.usuario.email}">
                                             <f:passThroughAttribute name="placeholder" value="Email" />
                                         </h:inputText>
                                     </div>
@@ -50,14 +50,14 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                                        <h:inputSecret id="senha" class="form-control">
+                                        <h:inputSecret id="senha" class="form-control" value="#{usuarioController.usuario.senha}>
                                             <f:passThroughAttribute name="placeholder" value="Senha" />
                                         </h:inputSecret>
                                     </div>
                                 </div>
 
                                 <div class="form-actions form-group">
-                                    <h:commandLink class="btn btn-success btn-sm">
+                                    <h:commandLink class="btn btn-success btn-sm" value="#{usuarioController.login}">
                                         Entrar <i class="fa fa-sign-in"></i>
                                     </h:commandLink>
 

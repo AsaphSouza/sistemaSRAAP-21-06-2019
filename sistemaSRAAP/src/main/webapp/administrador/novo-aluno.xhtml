@@ -101,7 +101,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-font"></i></div>
-                                            <h:inputText value="#{alunoMB.aluno.nome}" id="name" class="form-control" required = "true" requiredMessage="Campo obrigatório" >
+                                            <h:inputText id="name" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{alunoController.aluno.nomeCompleto}">
                                                 <f:passThroughAttribute name="placeholder" value="Nome completo" />
                                             </h:inputText>
                                         </div>
@@ -109,7 +109,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                            <h:inputText value="#{alunoMB.aluno.email}" id="email" class="form-control" required = "true" requiredMessage="Campo obrigatório" >
+                                            <h:inputText id="email" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{alunoController.aluno.email}">
                                                 <f:passThroughAttribute name="placeholder" value="Email" />
                                             </h:inputText>
                                         </div>
@@ -117,7 +117,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                                            <h:inputSecret value="#{alunoMB.aluno.senha}" id="password" class="form-control" required = "true" requiredMessage="Campo obrigatório">
+                                            <h:inputSecret id="password" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{alunoController.aluno.senha}">
                                                 <f:passThroughAttribute name="placeholder" value="Senha" />
                                             </h:inputSecret>
                                         </div>
@@ -126,24 +126,22 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                                            <h:selectOneMenu value="#{alunoMB.aluno.perfil}" id="perfil" class="form-control" required = "true" requiredMessage="Campo obrigatório" >
+                                            <h:selectOneMenu id="perfil" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{alunoController.aluno.perfil}">
                                                 <f:selectItem itemValue="Selecione o perfil" noSelectionOption="true"/>
-                                                <f:selectItem itemValue="1" itemLabel="Ativo"/> 
-                                                <f:selectItem itemValue="2" itemLabel="Reflexivo"/> 
-                                                <f:selectItem itemValue="3" itemLabel="Teórico"/>
-                                                <f:selectItem itemValue="4" itemLabel="Pragmático"/> 
+                                                <f:selectItem itemValue="Ativo" itemLabel="Ativo"/> 
+                                                <f:selectItem itemValue="Reflexivo" itemLabel="Reflexivo"/> 
+                                                <f:selectItem itemValue="Teórico" itemLabel="Teórico"/>
+                                                <f:selectItem itemValue="Pragmático" itemLabel="Pragmático"/> 
                                             </h:selectOneMenu>
                                         </div>
                                     </div>
 
                                     <div class="form-actions form-group">
-                                        <h:commandButton type="submit" 
-                                                         action="#{alunoMB.salvar()}"
-                                                         class="btn btn-success btn-sm">
+                                        <h:commandLink type="submit" action="#{alunoController.cadastrar()}"
+                                                       class="btn btn-success btn-sm">
                                             <i class="fa fa-save"></i>
-                                            Salvar
-                                            <f:ajax render="@form" resetValues="true"/>
-                                        </h:commandButton>
+                                            Salvar<f:ajax render="@form" resetValues="true"/>
+                                        </h:commandLink>
 
                                     </div>
 

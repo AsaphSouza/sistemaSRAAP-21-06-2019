@@ -101,7 +101,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-font"></i></div>
-                                            <h:inputText id="name" class="form-control" required = "true" requiredMessage="Campo obrigatório" >
+                                            <h:inputText id="name" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{professorController.professor.nomeCompleto}">
                                                 <f:passThroughAttribute name="placeholder" value="Nome completo" />
                                             </h:inputText>
                                         </div>
@@ -109,7 +109,7 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-envelope"></i></div>
-                                            <h:inputText id="email" class="form-control" required = "true" requiredMessage="Campo obrigatório" >
+                                            <h:inputText id="email" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{professorController.professor.email}">
                                                 <f:passThroughAttribute name="placeholder" value="Email" />
                                             </h:inputText>
                                         </div>
@@ -117,17 +117,16 @@
                                     <div class="form-group">
                                         <div class="input-group">
                                             <div class="input-group-addon"><i class="fa fa-asterisk"></i></div>
-                                            <h:inputSecret id="password" class="form-control" required = "true" >
+                                            <h:inputSecret id="password" class="form-control" required = "true" requiredMessage="Campo obrigatório" value="#{professorController.professor.senha}">
                                                 <f:passThroughAttribute name="placeholder" value="Senha" />
                                             </h:inputSecret>
                                         </div>
                                     </div>
                                     <div class="form-actions form-group">
-                                        <h:commandLink type="submit"                   
+                                        <h:commandLink type="submit" action="#{professorController.cadastrar()}"                
                                                        class="btn btn-success btn-sm">
                                             <i class="fa fa-save"></i>
-                                            Salvar
-                                            <f:ajax render="@form" resetValues="true"/>
+                                            Salvar<f:ajax render="@form" resetValues="true"/>
                                         </h:commandLink>
 
                                     </div>

@@ -61,7 +61,7 @@ public class GenericoDAO<T> implements DAO<T> {
 
 		} catch (HibernateException e) {
 			em.getTransaction().rollback();
-			throw new HibernateException("Erro de remo��o.");
+			throw new HibernateException("Erro de remoção.");
 
 		} catch (Exception e) {
 			em.getTransaction().rollback();
@@ -86,5 +86,4 @@ public class GenericoDAO<T> implements DAO<T> {
 			em.close();
 		}
 	}
-
 }

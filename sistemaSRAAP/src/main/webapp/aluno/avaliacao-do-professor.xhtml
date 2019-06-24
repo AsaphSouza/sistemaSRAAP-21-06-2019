@@ -111,7 +111,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito1}"/>
                                         </div>
                                     </div>
 
@@ -129,7 +129,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating value="#{avaliacaoController.avaliacao.conceito2}" />
                                         </div>
                                     </div>
 
@@ -148,7 +148,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating value="#{avaliacaoController.avaliacao.conceito3}" />
                                         </div>
                                     </div>
 
@@ -165,7 +165,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito4}"/>
                                         </div>
                                     </div>
 
@@ -182,7 +182,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating value="#{avaliacaoController.avaliacao.conceito5}"/>
                                         </div>
                                     </div>
 
@@ -202,7 +202,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito6}"/>
                                         </div>
                                     </div>
 
@@ -222,7 +222,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito7}"/>
                                         </div>
                                     </div>
 
@@ -240,7 +240,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito8}"/>
                                         </div>
                                     </div>
 
@@ -259,7 +259,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating value="#{avaliacaoController.avaliacao.conceito9}"/>
                                         </div>
                                     </div>
 
@@ -277,7 +277,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito10}"/>
                                         </div>
                                     </div>
 
@@ -295,7 +295,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito11}"/>
                                         </div>
                                     </div>
 
@@ -313,7 +313,7 @@
 
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <p:rating  />
+                                            <p:rating  value="#{avaliacaoController.avaliacao.conceito12}"/>
                                         </div>
                                     </div>
 
@@ -321,11 +321,9 @@
 
 
                                     <div class="form-actions form-group" align="center">
-                                        <h:commandLink type="submit" class="btn btn-success btn-sm">
+                                        <h:commandLink type="submit" class="btn btn-success btn-sm" action="#{avaliacaoController.cadastrar()}">
                                             <i class="fa fa-save"></i>
-                                            Salvar
-                                            <f:ajax render="@form"
-                                                    resetValues="true" />
+                                            Salvar<f:ajax render="@form" resetValues="true"/>
                                         </h:commandLink>
 
                                     </div>
